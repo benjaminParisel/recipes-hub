@@ -1,10 +1,10 @@
-import { Recipe } from './types';
+import { Category, Recipe } from './types';
 
 const recipes: Recipe[] = [
   {
     id: '1',
     name: 'Houmous Maison',
-    category: 'Apéro',
+    category: Category.Apero,
     ingredients: [
       { name: 'Pois chiches', quantity: '400', unit: 'g' },
       { name: 'Tahini', quantity: '60', unit: 'ml' },
@@ -32,7 +32,7 @@ const recipes: Recipe[] = [
   {
     id: '2',
     name: 'Tapenade d\'Olives',
-    category: 'Apéro',
+    category: Category.Apero,
     ingredients: [
       { name: 'Olives noires', quantity: '200', unit: 'g' },
       { name: 'Câpres', quantity: '2', unit: 'cuillère à soupe' },
@@ -60,7 +60,7 @@ const recipes: Recipe[] = [
   {
     id: '3',
     name: 'Guacamole',
-    category: 'Apéro',
+    category: Category.Apero,
     
     ingredients: [
       { name: 'Avocats', quantity: '3', unit: 'unité' },
@@ -89,7 +89,7 @@ const recipes: Recipe[] = [
   {
     id: '4',
     name: 'Salade César',
-    category: 'Entrée',
+    category: Category.Entree,
     ingredients: [
       { name: 'Laitue romaine', quantity: '1', unit: 'unité' },
       { name: 'Poulet', quantity: '200', unit: 'g' },
@@ -117,7 +117,7 @@ const recipes: Recipe[] = [
   {
     id: '5',
     name: 'Soupe à l\'Oignon',
-    category: 'Entrée',
+    category: Category.Entree,
     ingredients: [
       { name: 'Oignons', quantity: '6', unit: 'unité' },
       { name: 'Bouillon de boeuf', quantity: '1', unit: 'l' },
@@ -145,7 +145,7 @@ const recipes: Recipe[] = [
   {
     id: '6',
     name: 'Carpaccio de Saumon',
-    category: 'Entrée',
+    category: Category.Entree,
     ingredients: [
       { name: 'Saumon frais', quantity: '400', unit: 'g' },
       { name: 'Citron', quantity: '2', unit: 'unité' },
@@ -173,7 +173,7 @@ const recipes: Recipe[] = [
   {
     id: '7',
     name: 'Poulet Rôti aux Herbes',
-    category: 'Plat Principal',
+    category: Category.PlatPrincipal,
     ingredients: [
       { name: 'Poulet entier', quantity: '1.5', unit: 'kg' },
       { name: 'Thym frais', quantity: '4', unit: 'branches' },

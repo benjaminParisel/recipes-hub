@@ -1,5 +1,11 @@
+export enum Category {
+  Apero = 'Apero',
+  Entree = 'Entree',
+  PlatPrincipal = 'Plat Principal',
+  Dessert = 'Dessert',
+}
+
 export type Difficulty = 'Facile' | 'Moyen' | 'Difficile';
-export type Category = 'Apéro' | 'Entrée' | 'Plat Principal' | 'Dessert';
 export type CookingTime = 'Court' | 'Moyen' | 'Long';
 
 export interface Rating {

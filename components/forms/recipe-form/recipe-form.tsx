@@ -38,7 +38,7 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
 
   const [name, setName] = useState(initialData?.name || '');
   const [category, setCategory] = useState<Category>(
-    initialData?.category || 'Plat Principal'
+    initialData?.category || Category.PlatPrincipal
   );
   const [difficulty, setDifficulty] = useState<Difficulty>(
     initialData?.difficulty || 'Moyen'
@@ -118,10 +118,10 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Apéro">Category</SelectItem>
-                <SelectItem value="Entrée">Entrée</SelectItem>
-                <SelectItem value="Plat Principal">Plat Principal</SelectItem>
-                <SelectItem value="Dessert">Dessert</SelectItem>
+                <SelectItem value={Category.Apero}>{Category.Apero}</SelectItem>
+                <SelectItem value={Category.Entree}>{Category.Entree}</SelectItem>
+                <SelectItem value={Category.PlatPrincipal}>{Category.PlatPrincipal}</SelectItem>
+                <SelectItem value={Category.Dessert}>{Category.Dessert}</SelectItem>
               </SelectContent>
             </Select>
           </div>

@@ -1,11 +1,11 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
-import { Button } from '@/components/ui/button';
+import { Category, Difficulty, RecipeFilters } from '@/lib/types';
 import { X } from 'lucide-react';
-import { RecipeFilters, Category, Difficulty } from '@/lib/types';
 
 interface RecipeSearchProps {
   filters: RecipeFilters;
@@ -81,7 +81,7 @@ export function RecipeSearch({ filters, onFilterChange, authors }: RecipeSearchP
             )}
           </div>
           <Select
-            value={filters.category}
+             value={filters.category}
             onValueChange={(value: Category | undefined) => 
               onFilterChange({ ...filters, category: value })
             }
@@ -90,11 +90,11 @@ export function RecipeSearch({ filters, onFilterChange, authors }: RecipeSearchP
               <SelectValue placeholder="Toutes les catégories" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="Apéro">Apéro</SelectItem>
-              <SelectItem value="Entrée">Entrée</SelectItem>
-              <SelectItem value="Plat Principal">Plat Principal</SelectItem>
-              <SelectItem value="Dessert">Dessert</SelectItem>
-            </SelectContent>
+                <SelectItem value={Category.Apero}>{Category.Apero}</SelectItem>
+                <SelectItem value={Category.Entree}>{Category.Entree}</SelectItem>
+                <SelectItem value={Category.PlatPrincipal}>{Category.PlatPrincipal}</SelectItem>
+                <SelectItem value={Category.Dessert}>{Category.Dessert}</SelectItem>
+              </SelectContent>
           </Select>
         </div>
 
