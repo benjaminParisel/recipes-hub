@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Trash2 } from "lucide-react";
 import { Ingredient } from "@/lib/types";
+import { Trash2 } from "lucide-react";
 
 interface IngredientInputProps {
   ingredient: Ingredient;
@@ -13,8 +13,8 @@ interface IngredientInputProps {
 }
 
 const units = [
-  "g", "kg", "ml", "cl", "l", "cuillère à café", "cuillère à soupe", 
-  "pincée", "unité", "tranche", "gousse"
+  "g", "kg", "ml", "cl", "l", "cuillère à café", "cuillère à soupe",
+  "pincée", "unité", "tranche", "gousse", "autres"
 ];
 
 export function IngredientInput({ ingredient, onUpdate, onRemove }: IngredientInputProps) {

@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,13 +10,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Recipe, Category, Difficulty, Ingredient } from '@/lib/types';
-import { IngredientInput } from './ingredient-input';
-import { StepInput } from './step-input';
-import { ImageUpload } from './image-upload';
-import { Plus } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useAuthStore } from '@/lib/auth-store';
+import { Category, Difficulty, Ingredient, Recipe } from '@/lib/types';
+import { Plus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { ImageUpload } from './image-upload';
+import { IngredientInput } from './ingredient-input';
+import { StepInput } from './step-input';
 
 interface RecipeFormProps {
   initialData?: Recipe;
@@ -51,6 +51,7 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
   const [steps, setSteps] = useState<string[]>(
     initialData?.steps || ['']
   );
+  const [nbPerson, setNbPerson] = useState(initialData?.nbPerson?.toString() || '4');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +65,7 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
       return;
     }
 
-    if (!name || !category || !difficulty || !prepTime) {
+    if (!name || !category || !difficulty || !prepTime || !nbPerson) {
       toast({
         title: "Erreur",
         description: "Veuillez remplir tous les champs obligatoires",
@@ -88,6 +89,7 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
       ratings: initialData?.ratings || [],
       comments: initialData?.comments || [],
       createdAt: initialData?.createdAt || new Date(),
+      nbPerson: parseInt(nbPerson),
     };
 
     onSubmit(recipe);
@@ -116,7 +118,7 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Apéro">Apéro</SelectItem>
+                <SelectItem value="Apéro">Category</SelectItem>
                 <SelectItem value="Entrée">Entrée</SelectItem>
                 <SelectItem value="Plat Principal">Plat Principal</SelectItem>
                 <SelectItem value="Dessert">Dessert</SelectItem>
@@ -148,6 +150,17 @@ export function RecipeForm({ initialData, onSubmit }: RecipeFormProps) {
               type="number"
               value={prepTime}
               onChange={(e) => setPrepTime(e.target.value)}
+              min="1"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="nbPerson">Nombre de personnes</Label>
+            <Input
+              id="nbPerson"
+              type="number"
+              value={nbPerson}
+              onChange={(e) => setNbPerson(e.target.value)}
               min="1"
             />
           </div>

@@ -1,6 +1,6 @@
 import { Recipe } from '@/lib/types';
+import { Clock, Star, Users } from 'lucide-react';
 import Image from 'next/image';
-import { Clock, Users, Star } from 'lucide-react';
 import Link from 'next/link';
 
 interface RecipeCardProps {
@@ -8,7 +8,7 @@ interface RecipeCardProps {
   servings?: number;
 }
 
-export function RecipeCard({ recipe, servings = 4 }: RecipeCardProps) {
+export function RecipeCard({ recipe }: RecipeCardProps) {
   const difficultyColor = {
     'Facile': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
     'Moyen': 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100',
@@ -44,7 +44,7 @@ export function RecipeCard({ recipe, servings = 4 }: RecipeCardProps) {
             </div>
             <div className="flex items-center">
               <Users className="w-4 h-4 mr-1" />
-              {servings} portions
+              {recipe.nbPerson} portions
             </div>
           </div>
 

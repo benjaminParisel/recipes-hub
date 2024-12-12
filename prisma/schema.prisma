@@ -28,6 +28,7 @@ model Recipe {
   ingredients Ingredient[]
   steps       String[]
   cookingTime String
+  nbPersons   Int
   prepTime    Int
   difficulty  String
   image       String?

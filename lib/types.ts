@@ -32,6 +32,7 @@ export interface Recipe {
   cookingTime: CookingTime;
   prepTime: number;
   difficulty: Difficulty;
+  nbPerson: number;
   image?: string;
   comments: Comment[];
   authorId: string;
