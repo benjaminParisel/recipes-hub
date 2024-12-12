@@ -16,12 +16,7 @@ export const useRecipeStore = create<RecipeStore>((set) => ({
   recipes: process.env.NODE_ENV === 'development' ? initialRecipes : [], // Will be populated from MongoDB in production
   filters: {},
   addRecipe: (recipe) =>
-    set((state) => {
-      const newState = { recipes: [...state.recipes, recipe] };
-      console.log('New state:', newState);
-      return newState;
-    }
-    ),
+    set((state) => ({ recipes: [...state.recipes, recipe] })),
   updateRecipe: (recipe) =>
     set((state) => ({
       recipes: state.recipes.map((r) => (r.id === recipe.id ? recipe : r)),

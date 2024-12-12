@@ -26,8 +26,7 @@ export default function RecipesPage() {
 
   if (!user) return null;
   
-  const filteredRecipes = recipesStore.filter((recipe) => {
-    console.log('Recipe:', recipe);
+  const filteredRecipes = recipesStore.filter((recipe) => {    
     if (filters.category && recipe.category !== filters.category) return false;
     if (filters.difficulty && recipe.difficulty !== filters.difficulty) return false;
     if (filters.maxTime && recipe.prepTime > filters.maxTime) return false;

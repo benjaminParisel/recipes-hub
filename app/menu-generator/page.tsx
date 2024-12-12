@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 export default function MenuGeneratorPage() {
   const { recipes } = useRecipeStore();
-  console.log('recipes', recipes);
+  
   const [menu, setMenu] = useState<Record<Category, Recipe | null>>({
     'Entrée': null,
     'Plat Principal': null,
