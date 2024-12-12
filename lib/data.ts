@@ -199,6 +199,33 @@ const recipes: Recipe[] = [
     comments: [],
     createdAt: new Date('2024-01-01'),
   },
+  {
+    id: '8',
+    name: 'Crème Brûlée',
+    category: Category.Dessert,
+    ingredients: [
+      { name: 'Crème fraîche', quantity: '500', unit: 'ml' },
+      { name: 'Sucre', quantity: '100', unit: 'g' },
+      { name: 'Oeufs', quantity: '4', unit: 'pieces' },
+      { name: 'Vanille', quantity: '1', unit: 'gousse' },
+    ],
+    steps: [
+      'Mélanger la crème fraîche, le sucre et les oeufs',
+      'Ajouter la vanille et mélanger',
+      'Verser dans des ramequins et cuire au bain-marie',
+      'Laisser refroidir et saupoudrer de sucre avant de brûler',
+    ],
+    cookingTime: 'Court',
+    nbPerson: 4,
+    prepTime: 20,
+    difficulty: 'Facile',
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2',
+    authorId: '1',
+    authorName: 'Test User',
+    ratings: [],
+    comments: [],
+    createdAt: new Date('2024-01-01'),
+  },
   // ... rest of the recipes with the same structure
 ];
 

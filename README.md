@@ -42,6 +42,18 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
+### MongDb setup
+
+Create a cluster on https://cloud.mongodb.com/
+Create a user to allow to access to this cluster
+
+On .env, Add a DATASOURCE_URL entry with the url connection for the cluster
+
+WARNING: Don't forget to add a **database name** ()
+`DATABASE: The name of the database. Note that if you're using MongoDB Atlas, you need to manually append the database name to the connection URL because the environment link from MongoDB Atlas doesn't contain it.`
+
+To instanciate data, just run the `npm run seed` command.
+
 ### Building for Production
 
 To create a production build:
@@ -75,6 +87,7 @@ yarn start
 - [Next.js](https://nextjs.org/) - The React Framework
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
+
 
 ## Contributing
 
