@@ -12,7 +12,8 @@ interface RecipeStore {
 }
 
 export const useRecipeStore = create<RecipeStore>((set) => ({
-  recipes: initialRecipes,
+  
+  recipes: process.env.NODE_ENV === 'development' ? initialRecipes : [], // Will be populated from MongoDB in production
   filters: {},
   addRecipe: (recipe) =>
     set((state) => {

@@ -1,16 +1,15 @@
 'use client';
 
-import { recipes } from '@/lib/data';
 import { RecipeDetail } from '@/components/recipe-detail';
-import { notFound } from 'next/navigation';
 import { useAuthStore } from '@/lib/auth-store';
-import { useRouter } from 'next/navigation';
+import { useRecipeStore } from '@/lib/store';
+import { notFound, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function RecipeDetailPage({ params }: { params: { id: string } }) {
   const { user } = useAuthStore();
   const router = useRouter();
-  const recipe = recipes.find((r) => r.id === params.id);
+  const recipe = useRecipeStore((state) => state.recipes).find((r) => r.id === params.id);
 
   useEffect(() => {
     if (!user) {
