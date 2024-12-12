@@ -1,14 +1,15 @@
 'use client';
 
-import { useState } from 'react';
-import { useRecipeStore } from '@/lib/store';
-import { Recipe, Category } from '@/lib/types';
-import { Button } from '@/components/ui/button';
 import { RecipeCard } from '@/components/recipe-card';
+import { Button } from '@/components/ui/button';
+import { useRecipeStore } from '@/lib/store';
+import { Category, Recipe } from '@/lib/types';
 import { Dices } from 'lucide-react';
+import { useState } from 'react';
 
 export default function MenuGeneratorPage() {
   const { recipes } = useRecipeStore();
+  console.log('recipes', recipes);
   const [menu, setMenu] = useState<Record<Category, Recipe | null>>({
     'Entrée': null,
     'Plat Principal': null,
@@ -24,9 +25,9 @@ export default function MenuGeneratorPage() {
 
     // Get recipes for each category
     const categorizedRecipes = {
-      'Entrée': recipes.filter(recipe => recipe.category === 'Entrée'),
-      'Plat Principal': recipes.filter(recipe => recipe.category === 'Plat Principal'),
-      'Dessert': recipes.filter(recipe => recipe.category === 'Dessert'),
+      'Entrée': recipes.filter(recipe => recipe.category === Category.Entree),
+      'Plat Principal': recipes.filter(recipe => recipe.category === Category.PlatPrincipal),
+      'Dessert': recipes.filter(recipe => recipe.category === Category.Dessert),
     };
 
     // Generate random selection for each category
